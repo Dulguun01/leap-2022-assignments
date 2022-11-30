@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let dan1 = `Hi`;
+        let dan2 = 'i\'m '; //Backslash zaralsnaar ' temdegt bicej bolno
+        let dan3= "Dulguun";
+        let message = dan1+dan2+dan3;
+        console.log(message);
+        let message1 = `${dan1} everyone ${dan2} ${dan3}`;
+        console.log(message1);
+        console.log(dan1.length) ;//stringiiin urtiiig oloh jishee: hi bol '2' bn
+        console.log(dan3.charAt(2));//Textiin hd dahi useg ve gdgiig olno '0-ees ehelj toolno
+        console.log(dan3.toLocaleUpperCase());//Bugdiin tomruulna
+        console.log('Hello bang bang'.toUpperCase());
+        let FullString = 'Javascript is programming language';
+        const substr = FullString.substr (14,11);// substr ghiiin bol ehlel index avaad '11' duusgan
+        console.log(substr);
+        console.log(FullString.indexOf('language')) //Tuhain ug hd dahi dr bn ve ggiig oldog 'str.indexof(word)'
+        let iof ='this is string';
+        console.log(6,iof.indexOf('is'),);
+        let rawString ="  Hi   ";
+        console.log(rawString.rawString);
+
+
+        // const prompt1 = prompt('Too oruulna uuu')
+        // const prompt2 = prompt('Too oruulna uuu')
+        // console.log(Number(prompt1)+Number(prompt2)) // too bolgohiin tuld number ugnuu () bas bn
+
+        let number = 12.475447;
+        console.log(number.toFixed(2))
+
+        let a = 9;
+        let b = 5;
+        const diff = Math.abs(b-a);
+        console.log(diff);
+        console.log(Math.pow(8,3)) //zereg avah
+        const mat =parseInt(Math.random() * (max - min + 1 ) + min);
+        console.log(mat)
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    </script>
+    
+</body>
+</html>

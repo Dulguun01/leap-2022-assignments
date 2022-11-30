@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let year = parseInt(prompt('year'));
+        let month = parseInt(prompt('month'));
+        let day = parseInt(prompt('day'));
+        let num ="0";
+        if(month && day < 10){
+            let monthNew =num+month;
+            let dayNew =num+day;
+            console.log(`${year}-${monthNew}-${dayNew}`)
+        }else{
+            console.log(`${year}-${month}-${day}`)
+        }
+
+        let number = prompt('utasnuu dugaaraa hiine uu?');
+        let substr = number.substr(0,2);
+        if(substr==='99'){
+            console.log("mobicom number")
+        }else if(substr==='88'){
+            console.log('Unitel number')
+        }
+        else if(substr==='90'){
+            console.log('skytel number')
+        }
+        else if(substr==='98'){
+            console.log('g-mobile number')
+        }else
+        {
+            console.log("ymar dugaar yum be")
+        };
+    </script>
+    
+</body>
+</html>
