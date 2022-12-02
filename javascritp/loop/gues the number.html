@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <script>
+// 1. 1-100 ийн хооронд random оор 1 утга авдаг randomNumber гэсэн variable зарлана уу.
+// 2. Prompt ашиглан 1 утга аваад тэр тоог таах хүртэл зогсолтгүй ажиллах loop бичээргэй. 
+// 3. Хэрвээ prompt - оос авсан утга нь randomNumber оос их бол "таны оруулсан тоо их байна" г.м чиглүүлэх маягаар хэвлэдэг байх.
+let b = Math.floor(Math.random() * 100 ) + 1;
+console.log(b)
+let a = prompt("100-1 hoorond too oruulna uu")
+
+do{
+   
+    if(a>b){
+    console.log("ih bn")
+}else if(a<b){
+    console.log("baga bn")
+}if(a==b){
+    console.log("taalaaa") 
+    break; 
+}
+    a = prompt("100-1 hoorond too oruulna uu")
+
+
+ } while(a!=b)
+ alert(`ta zuv taaalaa ${b} tanii oruulsan too ${a}`)
+
+
+
+    </script>
+    
+</body>
+</html>
