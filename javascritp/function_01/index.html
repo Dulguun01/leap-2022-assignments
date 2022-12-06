@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      debugger;
+      function pyramid(rowLength) {
+        let result = "";
+        for (let i = 1; i <= rowLength; i++) {
+          for (let j = 0; j < rowLength - i; j++) {
+            result += " ";
+          }
+          for (let j = 0; j < i; j++) {
+            result += "* ";
+          }
+          result += "\n";
+        }
+        console.log(result);
+      }
+
+      //   let result = "";
+      //   for (let i = 1; i <= rowLength; i++) {
+      //     for (let j = 0; j < rowLength - i; j++) {
+      //       result += " ";
+      //     }
+      //     for (let j = 0; j < i; j++) {
+      //       result += "* ";
+      //     }
+      //     result += "\n";
+      //   }
+      console.log(result);
+      pyramid(20);
+      pyramid(25);
+      pyramid(30);
+
+      //   function register(number, onsar) {
+      //     if (number.substr(8) % 2 === 0) {
+      //       console.log("Em");
+      //     } else if (number.substr(8) % 2 !== 0) {
+      //       console.log("er");
+      //     }
+      //     let year = number.substr(2, 2);
+      //     let month = number.substr(4, 2);
+      //     let day = number.substr(7, 2);
+      //     if (month < 2 || month < 3) {
+      //       console.log(`20${year}-${month}-${day}`);
+      //     } else month === 1;
+      //     console.log(`19${year}-${month}-${day}`);
+      //     return number;
+      //   }
+      //   let number = prompt("Registeriin dugaaraa hiine uu?");
+      //   register(number);
+      //   //   register(onsar);
+      //   //   console.log(number);
+      //
+    </script>
+  </body>
+</html>
