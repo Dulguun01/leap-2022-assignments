@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let expense = [3000, 27500, 100000];
+      function tipOfRestaurant(arr) {
+        let sum = 0;
+        let sum_tip = 0;
+        for (i = 0; i < arr.length; i++) {
+          if (arr[i] > 5000 && arr[i] < 30000) {
+            sum += arr[i] + arr[i] * 0.15;
+            sum_tip += arr[i] * 0.15;
+          } else {
+            sum += arr[i] + arr[i] * 0.2;
+            sum_tip += arr[i] * 0.2;
+          }
+        }
+        return `${sum}, ${sum_tip} ${sum / arr.length}`;
+      }
+
+      console.log(tipOfRestaurant(expense));
+    </script>
+  </body>
+</html>
