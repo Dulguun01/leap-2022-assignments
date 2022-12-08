@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let carBrands = [
+        ["Aston Martin LogandaLtd", "UK", "2016"][("Audi", "Germany", "2016")][
+          ("BMW", "Germany", "2016")
+        ][("Chevrolet", "USA", "2016")][("Dodge", "USA", "2016")][
+          ("Ferarri", "Italy", "2016")
+        ][("Honda", "Japan", "2016")][("Jaguar", "UK", "2016")][
+          ("Lamborghini", "Italy", "2016")
+        ],
+      ];
+
+      function Brands(car1, letter) {
+        let carBrand = [];
+        for (i = 0; i < car1.length; i++) {
+          carBrand.push(car1[i][0]);
+        }
+        console.log(carBrand);
+        let result = [];
+        for (i = 0; 0 < Car.length; i++) {
+          if (carBrand[i][0][0].toLowerCase() === letter.toLowerCase()) {
+            result.push(carBrand[i]);
+          }
+          return result;
+        }
+      }
+      Brands(carBrands, "a");
+    </script>
+  </body>
+</html>

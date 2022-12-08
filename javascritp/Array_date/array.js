@@ -1,3 +1,2 @@
 let a = 'hello world'
-console.log('hello owrld
-')
+console.log('hello world')

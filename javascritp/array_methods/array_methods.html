@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+       1.// (Concat) gdg ni 2 array iiig hoorond ni nemdegeee
+       const array1 = ["a", "b", "c"];
+       const array2 = ["d", "e", "f"];
+       const array3 = array1.concat(array2);
+       const array4 = array1 + array2;
+       console.log(array3);
+       // output: Array ["a", "b", "c", "d", "e", "f"]
+       console.log(array4);
+       // output: Array ["a", "b", "c", "d", "e", "f"]
+
+       1.1// (Includes) array1 dotor bga haij bga element bga esehiig haina.
+       const array1 = [1, 2, 3];
+       console.log(array1.includes(2)); // true
+       const pet = [nohoi, muur, gahai];
+       console.log(pets.includes(muur)); // true
+       console.log(pets.includes(mogoi)); // false
+
+       2.// (indexof) haij bga element hded bna ve gdgiig oldog
+       const animals = ['chono', 'buhun', 'temee', 'nugas', 'buhun'
+       console.log(animals.indexOf('buhun')); // 1
+       4 // 2р индексээс хойш хайна
+       5 console.log(animals.indexOf('buhun', 2)); // 4
+       7 // хэрэв байхгүй бол -1 утга буцаана
+       8 console.log(animals.indexOf('giraffe')); // -1
+
+      3.// (Join)-array iiig string bolgodog
+
+      1 const jiguurten = ['Elee', 'Heree', 'Galuu'];
+      console.log(jiguurten.join()); // "Elee,Heree,Galuu"
+      4 console.log(jiguurten.join('')); // "EleeHereeGaluu" Zaigui string uusgej bn
+      5 console.log(jiguurten.join('-')); // "Elee-Heree-Galuu"
+
+      // (Pop) array dotor bga suuliin elementiiig tastaj avc shine huvisagchid ugdug
+      const arr = [0, 1, 2, 3, 4];
+      onst poppedValue = arr.pop();
+      onsole.log(poppedValue); // 4
+      console.log(arr); // Array [0,1,2,3]
+      arr.pop();
+      console.log(arr); // Array [0,1,2]
+
+      4.//(Push()) gdg element ni array-iin hamgiin suuld utga nemdeg
+      const animals = ['galuu', 'uher', 'honi'];
+      const count = animals.push('yamaa');
+      console.log(count);
+      // 4 (striniin urtiig zaaj ugdug)
+      console.log(animals);
+      // Array ["galuu", "uher", "honi", "yamaa"]
+      animals.push('tahia', 'muur', 'nohoi');
+      console.log(animals);
+      // Array ["galuu", "uher", "honi", "yamaa", "tahia", "muur"
+
+      5.//(Shift()) gdg ni array ehnii elementiig tasdaj avc shine huvisagchind oruulna.
+      const arr = [1, 2, 3];
+      const firstElement = arr.shift();
+      console.log(arr); // Array [2, 3]
+      console.log(firstElement); // 1
+
+      6.//sort() нь духайн array-н утгуудыг эрэмбэлэнэ
+      const array1 = [1, 2, 3];
+      console.log(array1.unshift(4, 5)); // 5
+      console.log(array1); // Array [4, 5, 1, 2, 3]
+
+      //sort() нь духайн array-н утгуудыг эрэмбэлэнэ
+      const names = ['Marlaa', 'Javkhaa', 'Erdene', 'Dorj'];
+      names.sort();
+      console.log(names);
+      // Array ["Dorj", "Erdene", "Javkhaa", "Marlaa"]
+      const array1 = [1, 30, 4, 21, 100000];
+      array1.sort();
+      console.log(array1);
+      // Array [1, 100000, 21, 30, 4]
+
+      7.// (reverse()) tuhain array iiig tongorj shinechilne.
+      const array1 = ['one', 'two', 'three'];
+      console.log('array1:', array1);
+      // "array1:" Array ["one", "two", "three"]
+      const reversed = array1.reverse();
+      console.log('reversed:', reversed);
+      // "reversed:" Array ["three", "two", "one"]
+      console.log('array1:', array1);
+      // "array1:" Array ["three", "two", "one"]
+
+      8.// (Slice()) Tuhain array-iiin utgiig tasdaj avc (copy array) uusgen
+
+        // slice(startIndex, endIndex) тухайн array-н эхлэх
+        // болон дуусах индекс зааж өгөн шинэ array-н
+        // хуулбар үүсгэнэ. Үндсэн array-д ямар нэгэн
+        // өөрчлөлт оруулдаггүй
+
+         const arr = ['bat', 'dorj', 'purev', 'davaa', 'tomor'];
+        // 2р индекс хүртлэхийг тасдаж авна
+        console.log(arr.slice(2));
+        // ["purev", "davaa", "tomor"]
+        6 // 2р индексээс 4р индекс хүртлэхийг авна
+        7 console.log(arr.slice(2, 4));
+        8 // ["purev","davaa"]
+        10 // хойноосоо 2р индексээс эхлэн тасдаж авна
+        11 console.log(arr.slice(-2));
+        12 // ["davaa","tomor"]
+
+      9.splice(startIndex, deleteCount, item1, item2, itemN)
+      // тухайн array-н тодорхой заагдсан индексээс
+      // эхлэн тодорхой элемэнтийг устгах болон шинээр
+      // нэмэх үйлдлийг хийнэ.
+         const arr = ['Davaa', 'Lkhagva', 'Purev', 'Byamba'];
+         arr.splice(1, 0, 'Myagmar');
+         // 1 дэх индекс дээр шинээр утга нэмэх үйлдэл
+         console.log(arr);
+         // ["Davaa", "Myagmar", "Lkhagva", "Purev", "Byamba"]
+         arr.splice(4, 1, 'Baasan');
+         // 4 дөх индекс дэх утгыг солиж байна
+         console.log(arr);
+         // ["Davaa", "Myagmar", "Lkhagva", "Purev", "Baasan"]
+
+      10.//split(pattern) тухайн string-г тодорхой заасан
+         // pattern бүрээр таслаж шинээр array үүсгэнэ
+
+         const str = 'Arvan tavan targan tarvaga';
+         const words = str.split(' ');
+         console.log(words);
+         // ["Arvan", "tavan", "targan", "tarvaga"]
+         const chars = str.split('');
+         console.log(chars[1]);
+         // "r"
+         const strCopy = str.split();
+         console.log(strCopy); // ["Arvan tavan targan tarvaga"]
+
+      11.//replace(pattern, replacement) зөвхөн эхний олдсон
+         // string-г шинэчлэн солидог.
+         // replaceAll(pattern, replacement) олдсон бүх string-г
+         // шинэчлэн солидог.
+
+
+         const p = 'she sells seashells by the seashore';
+         console.log(p.replace('sea', 'wind'));
+         // "she sells windshells by the seashore"
+         console.log(p.replaceAll('sea', 'wind'));
+         // "she sells windshells by the windshore"
+    </script>
+  </body>
+</html>
