@@ -1,0 +1,14 @@
+.card{
+ padding: 20px;
+}
+.col-4{
+  padding: 20px;
+}
+.card-body{
+  text-align: center;
+  /* font-size: 1.2rem; */
+}
+
+.card-name{
+  font-size: 1.3rem;
+}

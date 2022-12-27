@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const data = [
+        {
+          productName: "Bakery",
+          unitPrice: 5000,
+          amount: 200,
+          totalPrice: 500000,
+          casherId: 1,
+          date: "2022-13-03",
+        },
+        {
+          productName: "banana",
+          unitPrice: 3000,
+          amount: 9,
+          totalPrice: 54.666,
+          casherId: 3,
+          date: "2022-33-03",
+        },
+        {
+          productName: "banana",
+          unitPrice: 5000,
+          amount: 38,
+          totalPrice: 54.777,
+          casherId: 4,
+          date: "2022-33-03",
+        },
+        {
+          productName: "banana",
+          unitPrice: 3000,
+          amount: 2,
+          totalPrice: 54.878,
+          casherId: 5,
+          date: "2022-33-03",
+        },
+        {
+          productName: "banana",
+          unitPrice: 2000,
+          amount: 6,
+          totalPrice: 54.789,
+          casherId: 6,
+          date: "2022-11-01",
+        },
+        {
+          productName: "banana",
+          unitPrice: 4000,
+          amount: 77,
+          totalPrice: 67.0,
+          casherId: 5,
+          date: "2022-12-01",
+        },
+        {
+          productName: "banana",
+          unitPrice: 4500,
+          amount: 88,
+          totalPrice: 67.0,
+          casherId: 6,
+          date: "2022-11-01",
+        },
+        {
+          productName: "banana",
+          unitPrice: 3500,
+          amount: 98,
+          totalPrice: 65.0,
+          casherId: 5,
+          date: "2022-12-01",
+        },
+        {
+          productName: "banana",
+          unitPrice: 3700,
+          amount: 09,
+          totalPrice: 45.0,
+          casherId: 5,
+          date: "2022-2-01",
+        },
+        {
+          productName: "banana",
+          unitPrice: 6000,
+          amount: 8,
+          totalPrice: 65.0,
+          casherId: 6,
+          date: "2022-03-01",
+        },
+        {
+          productName: "bread",
+          unitPrice: 5500,
+          amount: 5,
+          totalPrice: 65.0,
+          casherId: 4,
+          date: "2022-05-01",
+        },
+        {
+          productName: "bread",
+          unitPrice: 3900,
+          amount: 6,
+          totalPrice: 76.0,
+          casherId: 7,
+          date: "2022-11-01",
+        },
+        {
+          productName: "bread",
+          unitPrice: 2780,
+          amount: 66,
+          totalPrice: 87.0,
+          casherId: 5,
+          date: "2022-12-01",
+        },
+        {
+          productName: "Chocolate",
+          unitPrice: 1400,
+          amount: 77,
+          totalPrice: 87.0,
+          casherId: 4,
+          date: "2022-11-03",
+        },
+        {
+          productName: "Apple",
+          unitPrice: 1202,
+          amount: 65,
+          totalPrice: 76.0,
+          casherId: 5,
+          date: "2022-11-18",
+        },
+        {
+          productName: "Apple",
+          unitPrice: 7000,
+          amount: 76,
+          totalPrice: 65.0,
+          casherId: 6,
+          date: "2022-11-27",
+        },
+        {
+          productName: "Apple",
+          unitPrice: 8000,
+          amount: 76,
+          totalPrice: 54.0,
+          casherId: 7,
+          date: "2022-11-012",
+        },
+        {
+          productName: "Apple",
+          unitPrice: 9800,
+          amount: 7,
+          totalPrice: 54.0,
+          casherId: 8,
+          date: "2022-01-01",
+        },
+        {
+          productName: "Chocolate",
+          unitPrice: 8700,
+          amount: 78,
+          totalPrice: 43.0,
+          casherId: 9,
+          date: "2022-11-27",
+        },
+        {
+          productName: "Chocolate",
+          unitPrice: 6700,
+          amount: 87,
+          totalPrice: 34.0,
+          casherId: 5,
+          date: "2022-01-27",
+        },
+      ];
+
+      // 1. Нийт борлуулалтын дүнг тооцоолох.
+      // 2. Нийт борлуулагдсан барааны тоог тооцоолох.
+      // 3. Хамгийн их зарагдсан 5 барааны жагсаалт /боруулалтын үнийн дүнгээр/ харуулах.
+      // 4. Хамгийн их зарагдсан 5 барааны жагсаалт /боруулалтын тоо хэмжээгэр/ харуулах.
+      // 5. Хамгийн бага зарагдсан 5 барааны жагсаалт /боруулалтын үнийн дүнгээр/ харуулах.
+      // 6. Хамгийн бага зарагдсан 5 барааны жагсаалт /боруулалтын тоо хэмжээгээр/ харуулах.
+      // 7. Хамгийн их зарагдсан /боруулалтын үнийн дүнгээр/ 10 барааны боруулалтын үнийн дүнгийн нийт боруулалтанд эзлэх хувь харуулах.
+      // 8. Хамгийн их зарагдсан /боруулалтын тоо хэмжээгээр/ 5 барааны тоо хэмжээ нийт барааны тоо хэмжээнд эзлэх хувь харуулах.
+      // 9. Хамгийн бага зарагдсан /боруулалтын үнийн дүнгээр/ 5 барааны боруулалтын үнийн дүнгийн нийт боруулалтанд эзлэх хувь харуулах.
+      // 10. Хамгийн бага зарагдсан /боруулалтын тоо хэмжээгээр/ 5 барааны тоо хэмжээ нийт барааны тоо хэмжээнд эзлэх хувь харуулах.
+
+      // 1. Нийт борлуулалтын дүнг тооцоолох.
+
+      function totalSum(total) {
+        sum = 0;
+        for (i = 0; i < total.length; i++) {
+          sum += total[i].totalPrice;
+        }
+        return sum;
+      }
+      console.log(totalSum(data));
+
+      // 2. Нийт борлуулагдсан барааны тоог тооцоолох.
+
+      function totalSumOfAmount(amountt) {
+        sumOfAmount = 0;
+        for (i = 0; i < amountt.length; i++) {
+          sumOfAmount += amountt[i].amount;
+        }
+        return sumOfAmount;
+      }
+      console.log(totalSumOfAmount(data));
+
+      // 3. Хамгийн их зарагдсан 5 барааны жагсаалт /боруулалтын үнийн дүнгээр/ харуулах.
+
+      function totalOfProductName(mostFiveName) {
+        mostFiveName.sort((a, b) => b.totalPrice - a.totalPrice);
+        console.log(mostFiveNames.slice(0, 5));
+      }
+      totalOfProductName(data);
+    </script>
+  </body>
+</html>
