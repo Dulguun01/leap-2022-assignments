@@ -81,12 +81,8 @@ const deletetCar = async (id) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ id }),
-    })
-      .then((res) => res.json())
-      .catch((err) => {
-        alert("amjilttai ustaglaa");
-        getCarsHtml();
-      });
+    }).then((res) => res.json());
+  getCarsHtml();
 };
 const getCar = async (id) => {
   const res = await fetch("http://localhost:3333/api/cars" + id);
