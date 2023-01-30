@@ -1,33 +1,37 @@
 const express = require("express");
 const cors = require("cors");
+const bodyParser = require("body-parser");
+const jsonParser = bodyParser.json();
 const { request, response } = require("express");
+const fs = require("fs");
 const app = express();
 app.use(cors());
 
 const port = 8000;
 
-const categories = [
-  {
-    id: 1,
-    name: "blog",
-  },
-  {
-    id: 2,
-    name: "technology",
-  },
-  {
-    id: 3,
-    name: "photo",
-  },
-  {
-    id: 4,
-    name: "adjwa",
-  },
-  {
-    id: 5,
-    name: "dwajdwa",
-  },
-];
+// let categories = [
+//   {
+//     id: 1,
+//     name: "blog",
+//     description: "dawudauwj",
+//   },
+//   {
+//     id: 2,
+//     name: "technology",
+//   },
+//   {
+//     id: 3,
+//     name: "photo",
+//   },
+//   {
+//     id: 4,
+//     name: "adjwa",
+//   },
+//   {
+//     id: 5,
+//     name: "dwajdwa",
+//   },
+// ];
 const status = [
   {
     id: 1,
@@ -58,17 +62,84 @@ const status = [
   },
 ];
 
-app.get("/categories", (request, response) => {
-  response.status(200);
-  response.json(categories);
+// let nextCatId = categories.length;
+let categories = JSON.parse(fs.readFileSync("categoryData.json", "utf-8"));
+
+let products = JSON.parse(fs.readFileSync("Mock_Data.json", "utf-8"));
+app.get("/products", (req, res) => {
+  let { pageSize, page, priceTo, priceFrom, q } = req.query;
+  pageSize = Number(pageSize) || 7;
+  page = Number(page) || 1;
+
+  const item1 = products.filter((item) => {
+    item.name.toLowerCase().includes(q.toLowerCase());
+  });
+
+  let start, end;
+  start = (page - 1) * pageSize;
+  end = start + pageSize;
+  const item = products.slice(start, end);
+
+  res.json({
+    // q,
+    total: products.length,
+    totalPages: Math.ceil(products.length / pageSize),
+    page,
+    pageSize,
+    item,
+    priceFrom,
+  });
 });
-app.get("/status", (request, response) => {
-  response.status(200);
-  response.json(status);
+
+const updateCategoriesFile = () => {
+  fs.writeFileSync("categoryData.json", JSON.stringify(categories));
+};
+
+app.get("/categories", (req, res) => {
+  res.json(categories);
 });
+
 app.get("/status/:id", (req, res) => {
   const { id } = req.params;
-  res.json(status[Number(id) - 1]);
+  let category = null;
+  for (const cat of categories) {
+    if (id == cat.id) {
+      category = cat;
+      break;
+    }
+  }
+
+  res.json(category);
+});
+
+// app.delete("/categories/:id", (req, res) => {
+//   const { id } = req.params;
+//   categories = categories.filter((row) => row.id === Number(id));
+//   updateCategoriesFile;
+//   res.json(id);
+// });
+
+// app.patch("/categories/:id", (req, res) => {
+//   const { id } = req.params;
+//   categories = categories.filter((row) => row.id !== id);
+//   updateCategoriesFile;
+//   res.json(id);
+// });
+
+// app.patch('/categories/:id',(req,res)=>{
+//   const {id} =req.params
+//   categoires = categories.map((a)=>{(a.id !===id)
+//     res.json(id)
+//   })
+
+// })
+
+app.post("/categoires", jsonParser, (req, res) => {
+  const { name } = req.body;
+  const newCategory = { id: nextCatId++, name };
+  updateCategoriesFile;
+  categories.push(newCategory);
+  res.send(newCategory);
 });
 
 app.listen(port, () => {
