@@ -68,20 +68,35 @@ let categories = JSON.parse(fs.readFileSync("categoryData.json", "utf-8"));
 let products = JSON.parse(fs.readFileSync("Mock_Data.json", "utf-8"));
 app.get("/products", (req, res) => {
   let { pageSize, page, priceTo, priceFrom, q } = req.query;
-  pageSize = Number(pageSize) || 7;
+  pageSize = Number(pageSize) || 10;
   page = Number(page) || 1;
-
-  const item1 = products.filter((item) => {
-    item.name.toLowerCase().includes(q.toLowerCase());
-  });
 
   let start, end;
   start = (page - 1) * pageSize;
-  end = start + pageSize;
-  const item = products.slice(start, end);
+  end = page * pageSize;
+  const newProducts = products.filter((product) => {
+    let matching = true;
+    if (q) {
+      return product.name.toLowerCase().includes(q.toLowerCase());
+    }
+    if (priceFrom) return priceFrom < product.price;
+    return matching;
+  });
+
+  // const newNumber = products.filter((product) => {
+  //   let matching = true;
+  //   if (priceFrom) {
+  //     matching = product.price.includes(priceFrom);
+  //   }
+  //   return matching;
+  // });
+  console.log(newProducts);
+  console.log("--------------");
+  const item = newProducts.slice(start, end);
+  console.log(priceFrom);
 
   res.json({
-    // q,
+    q,
     total: products.length,
     totalPages: Math.ceil(products.length / pageSize),
     page,
@@ -90,7 +105,6 @@ app.get("/products", (req, res) => {
     priceFrom,
   });
 });
-
 const updateCategoriesFile = () => {
   fs.writeFileSync("categoryData.json", JSON.stringify(categories));
 };
@@ -109,7 +123,7 @@ app.get("/status/:id", (req, res) => {
     }
   }
 
-  res.json(category);
+  res.json(categories);
 });
 
 // app.delete("/categories/:id", (req, res) => {
