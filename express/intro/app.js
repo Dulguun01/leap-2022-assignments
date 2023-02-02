@@ -118,7 +118,6 @@ app.get("/status/:id", (req, res) => {
   let category = null;
   for (const cat of categories) {
     if (id == cat.id) {
-      v;
       category = cat;
       break;
     }
